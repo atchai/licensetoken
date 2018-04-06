@@ -72,6 +72,18 @@ function startApp(web3js) {
     });
   });
 
+  $('.balance').on('click', function () {
+    contract.balanceOf(web3js.eth.accounts[0],
+    function (err, res) {
+      if (err) {
+        return console.error(err);;
+      }
+      else {
+        $('#account_balance').text(res.c[0]);
+      }
+    });
+  });
+
   $('.get').on('click', function () {
     $('.challenge').empty();
     $.get('http://localhost:3001/auth/' + web3js.eth.accounts[0], (res) => {

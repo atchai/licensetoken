@@ -21,11 +21,12 @@
 <body>
 
   <div class="jumbotron">
-    <h1 class="display-3">Subscription Token</h1>
+    <h1 class="display-3">Token License</h1>
     <p class="lead">SaaS licenses as ERC721 tokens</p>
     <hr class="my-4" >
-    <p>Transferrable: sell your part used subscriptions.</p>
-    <p>Privacy first: you can prove to vendor A that you have an active subscription with vendor B without leaking and personal information.</p>
+    <h3>Why?</h3>
+    <p><b>Transferable:</b> sell your part used subscriptions.</p>
+    <p><b>Privacy first: you can prove to vendor A that you have an active subscription with vendor B without leaking and personal information.</p>
     <p>Anti-piracy: you have to share your private key to share your license, as the token is transferrable you risk it being transferred away from you.</p>
 
     <p class="lead">
@@ -91,28 +92,28 @@
   <div class="container" id="main-content" style="display:none">
 
     <div class="card bg-light mb-3 mx-auto" id="blockchain" style="max-width:90%;">
-        <div class="card-header"><b>Step 1:</b> Buy a token</div>
+        <div class="card-header">Buy a token</div>
         <div class="card-body">
           <div class="form-group form-inline">
-            <button class="buy btn btn-success">Buy token (Ξ0.1)</button>
+            <button class="buy btn btn-success">Buy token</button>
           </div>
-          <p>After clicking the buy button metamask should open and ask you to make a transaction.  This is on testnet so not real ether.</p>
+          <p>After clicking the buy button, Metamask should open and ask you to make a transaction.  This is on testnet so not real ether.</p>
         </div>
     </div>
 
     <div class="card bg-light mb-3 mx-auto" id="blockchain" style="max-width:90%;">
-        <div class="card-header"><b>Step 2:</b> Check your balance</div>
+        <div class="card-header">Check your balance</div>
         <div class="card-body">
           <div class="form-group form-inline">
-            <!--<input type="text" class="text form-control" placeholder="Your name">-->
             <button class="balance btn btn-success">Get my token balance</button>
           </div>
           <p>It may take a minute for your transaction to be mined.  Make sure you have a balance of 1 or more before proceeding.</p>
+          <p>Account balance: <span id="account_balance">?</span></p>
         </div>
     </div>
 
     <div class="card bg-light mb-3 mx-auto" id="blockchain" style="max-width:90%;">
-      <div class="card-header"><b>Step 3:</b> Securely prove you own your etherum address</div>
+      <div class="card-header">Securely prove you own your etherum address</div>
       <div class="card-body">
         <div class="form-group form-inline">
           <!--<input type="text" class="text form-control" placeholder="Your name">-->
@@ -123,7 +124,7 @@
     </div>
 
     <div class="card bg-light mb-3 mx-auto" id="blockchain" style="max-width:90%;">
-      <div class="card-header"><b>Step 4:</b> Authenticate</div>
+      <div class="card-header">Authenticate</div>
       <div class="card-body">
         <h1 class="success" style="display: none;">Authentication Success</h1>
         <h1 class="fail" style="display: none;">Authentication Failed</h1>

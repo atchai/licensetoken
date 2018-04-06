@@ -24,23 +24,23 @@ app.get('/auth/:MetaAddress', metaAuth, (req, res) => {
 
 app.get('/auth/:MetaMessage/:MetaSignature', metaAuth, (req, res) => {
 
-  console.log('in verify')
   if (req.metaAuth && req.metaAuth.recovered) {
-    // Signature matches the cache address/challenge
-    console.log(req.metaAuth )
-    res.send(req.metaAuth.recovered);
-
-/*
+    
     // Check whether this user has a valid subscription in ERC721 token
-    token.methods.balanceOf('0x627306090abaB3A6e1400e9345bC60c78a8BEf57').call()
-      .then(function(result){
+    token.balanceOf(req.metaAuth.recovered,
+      function (err, result) {
+        if (err) {
+          return console.error(err);;
+        }
+        else {
           console.log(result)
           // Authentication is valid, assign JWT, etc.
-          if (result > 0) res.send(req.metaAuth.recovered);
+          if (result.c[0] > 0) res.send(req.metaAuth.recovered);
           // Authentication fail, no subscription token
           else res.status(400).send();
+        }
     });
-    */
+
   } else {
     // Sig did not match, invalid authentication
     res.status(400).send();
