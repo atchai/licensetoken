@@ -1,0 +1,24 @@
+{
+  "name": "illegaljump",
+  "version": "1.0.0",
+  "description": "software licenses as erc721 tokens",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack",
+    "start": "webpack && node server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "ethjs-contract": "^0.1.9",
+    "ethjs-query": "^0.3.4",
+    "express": "^4.16.3",
+    "jquery": "^3.3.1",
+    "meta-auth": "^1.1.2",
+    "web3": "^0.20.0"
+  },
+  "devDependencies": {
+    "webpack": "^4.3.0",
+    "webpack-cli": "^2.0.13"
+  }
+}
