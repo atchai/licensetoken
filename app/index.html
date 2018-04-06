@@ -21,29 +21,35 @@
 <body>
 
   <div class="jumbotron">
-    <h1 class="display-3">Token License</h1>
+    <h1 class="display-3">Open License</h1>
     <p class="lead">Software licenses as ERC721 tokens</p>
     <hr class="my-4" >
-    <h3>Why?</h3>
-    <p><b>Transferable:</b> fixed-term subscriptions can be sold .</p>
-    <p><b>Privacy first:</b> you can prove to vendor A that you have an active subscription with vendor B without leaking and personal information.</p>
-    <p>Anti-piracy: you have to share your private key to share your license, as the token is transferrable you risk it being transferred away from you.</p>
-
-    <p class="lead">
-      <a class="btn btn-primary btn-lg btn-learn-more" role="button" style="color:white">Learn more</a>
-    </p>
-
-    <div id="learn-more" style="margin-top:50px; display:none">
-      <h3>Ropsten Only</h3>
-      <p>We are currently in testing on the <b>Ropsten test net</b>.  To use OpenSign today please use the menu at the top left corner of Metamask to switch to the Ropsten test net.  You can then <a href="https://faucet.metamask.io/">collect some free ether from the faucet here</a>.</p>
-
-      <h3>Further Details</h3>
-      <p>This project is open source, the <a href="https://github.com/atchai/opensign">source code is available on Github</a></p>
-      <p>You can find the <a href="https://github.com/atchai/opensign/blob/master/app/contracts/opensign.sol">smart contract code here</a>.</p>
-      <p>The site itself is available <a href="https://gateway.ipfs.io/ipfs/QmUu7kuy7dHCC5RDL3hscji81Fb6EmoBRzmwcrgJweRVjJ/">hosted on IPFS</a></p>
-      <p>We use the Infura public IPFS node for file uploads.</p>
-      <p>Thanks to meta-auth</p>
+    <div class="row" >
+      <div class="card text-white bg-primary mb-3" style="max-width: 20rem; margin-left:15px">
+        <div class="card-body">
+          <h4 class="card-title">Transferable</h4>
+          <p class="card-text">Usage based licenses or fixed-term subscriptions can be resold. Vendor can set parameters such as a revenue share of the secondary sale or a time period before transfer is allowed.</p>
+        </div>
+      </div>
+      <div class="card text-white bg-primary mb-3" style="max-width: 20rem; margin-left:20px">
+        <div class="card-body">
+          <h4 class="card-title">Anti-piracy</h4>
+          <p class="card-text">You have to share your private key to share your license, as the token is transferrable you risk it being transferred away from you by doing this.</p>
+        </div>
+      </div>
+      <div class="card text-white bg-primary mb-3" style="max-width: 20rem; margin-left:20px">
+        <div class="card-body">
+          <h4 class="card-title">Decentralized authentication</h4>
+          <p class="card-text">Passwordless log in to partner products without sharing any data between them.</p>
+        </div>
+      </div>
     </div>
+
+    <p>This is a demonstration of how ERC721 tokens can be used to represent software licenses. </p>
+    <p>You buy a token, then authenticate with a server by cryptographically verifying that you own the address that owns the token. </p>
+
+    <p><a href="#">All is explained in this blog post.</a></p>
+
   </div>
 
   <!-- METAMASK NOT INSTALLED  -->
@@ -133,9 +139,9 @@
         <h1 class="fail" style="display: none;  color:red">Failed</h1>
         <div class="form-group form-inline">
           <!--<input type="text" class="text form-control" placeholder="Your name">-->
-          <button class="verify btn btn-success">Log In</button>
+          <button class="verify btn btn-success">Authenticate</button>
         </div>
-        <p>Server checks that your signature matches your address and checks with the smart contract that you have at least one token, if you do then you are authenticated.</p>
+        <p>You send your signature to the server, which then verifies that it matches your address and checks with the smart contract that you have at least one token, if you do then you are authenticated.</p>
       </div>
     </div>
 
@@ -156,7 +162,7 @@
 
                   <!--Grid column-->
                   <div class="col-md-2 mb-3">
-                      <h3 class="title font-weight-bold" style="color:white">OpenSign</h3>
+                      <h3 class="title font-weight-bold" style="color:white">OpenLicense</h3>
                   </div>
                   <!--Grid column-->
 
@@ -171,7 +177,7 @@
                     <!--Grid column-->
                     <div class="col-md-8 col-12 mt-5">
                         <p style="line-height: 1.7rem; color:white">
-                          OpenSign is a decentralized alternative to products like DocuSign and EchoSign.  Documents are stored on IPFS, a decentralized filesystem, and the signatures are stored on the Ethereum blockchain.  The only thing that's left is the code that's running in your browser right now, and that's hosted on IPFS too!
+                          This is a demonstration of how ERC721 tokens can be used to represent software licenses.  You buy a token, then authenticate with a server by cryptographically verifying that you own the address that owns the token.
                         </p>
 
                     </div>
@@ -189,7 +195,7 @@
             <!--Copyright-->
             <div class="footer-copyright py-3 text-center">
                 <div class="container-fluid" style="color:white">
-                  &copy; 2018 Created by <a href="https://atchai.com"> atchai.com </a>
+                  &copy; 2018 Created by <a href="https://atchai.com" style="color:white"> atchai.com </a>
                 </div>
             </div>
             <!--/Copyright-->
@@ -197,9 +203,5 @@
         </footer>
         <!--/Footer-->
 
-  </body>
-
-
-
-</body>
+      </body>
 </html>

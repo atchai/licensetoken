@@ -6,7 +6,9 @@ var web3 = new Web3(
 );
 
 const app = express();
-const metaAuth = new MetaAuth();
+const metaAuth = new MetaAuth({
+  banner: 'Token License Login'
+});
 
 const contract_address = '0x345ca3e014aaf5dca488057592ee47305d9b3e10';
 const contract_abi = require('./src/abi.js');
@@ -25,7 +27,7 @@ app.get('/auth/:MetaAddress', metaAuth, (req, res) => {
 app.get('/auth/:MetaMessage/:MetaSignature', metaAuth, (req, res) => {
 
   if (req.metaAuth && req.metaAuth.recovered) {
-    
+
     // Check whether this user has a valid subscription in ERC721 token
     token.balanceOf(req.metaAuth.recovered,
       function (err, result) {
@@ -33,7 +35,6 @@ app.get('/auth/:MetaMessage/:MetaSignature', metaAuth, (req, res) => {
           return console.error(err);;
         }
         else {
-          console.log(result)
           // Authentication is valid, assign JWT, etc.
           if (result.c[0] > 0) res.send(req.metaAuth.recovered);
           // Authentication fail, no subscription token
