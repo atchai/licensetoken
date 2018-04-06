@@ -13,10 +13,9 @@ let signature = null;
 window.addEventListener('load', function() {
   // Checking if Web3 has been injected by the browser (Mist/MetaMask)
   if ((typeof web3 !== 'undefined') && (web3.givenProvider !== null)) {
-    // Checking if user is logged into an account
-
     var web3js = new Web3(web3.currentProvider);
-
+    
+    // Checking if user is logged into an account
     web3js.eth.getAccounts(function(err, accounts){
         if (err != null) console.error("An error occurred: "+err);
 
@@ -121,12 +120,15 @@ function startApp(web3js) {
 
   $('.verify').on('click', function() {
 
-    $.get('http://localhost:3001/auth/' + challenge[1].value + '/' + signature, (res) => {
-      if (res === web3js.eth.accounts[0]) {
-        $('.success').show();
-      } else {
-        $('.fail').show();
-      }
-    });
+    if (challenge) {
+      $.get('http://localhost:3001/auth/' + challenge[1].value + '/' + signature, (res) => {
+        if (res === web3js.eth.accounts[0]) {
+          $('.success').show();
+        } else {
+          $('.fail').show();
+        }
+      });
+    }
+    else $('.fail').show();
   });
 }

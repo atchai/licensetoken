@@ -22,11 +22,11 @@
 
   <div class="jumbotron">
     <h1 class="display-3">Token License</h1>
-    <p class="lead">SaaS licenses as ERC721 tokens</p>
+    <p class="lead">Software licenses as ERC721 tokens</p>
     <hr class="my-4" >
     <h3>Why?</h3>
-    <p><b>Transferable:</b> sell your part used subscriptions.</p>
-    <p><b>Privacy first: you can prove to vendor A that you have an active subscription with vendor B without leaking and personal information.</p>
+    <p><b>Transferable:</b> fixed-term subscriptions can be sold .</p>
+    <p><b>Privacy first:</b> you can prove to vendor A that you have an active subscription with vendor B without leaking and personal information.</p>
     <p>Anti-piracy: you have to share your private key to share your license, as the token is transferrable you risk it being transferred away from you.</p>
 
     <p class="lead">
@@ -117,22 +117,25 @@
       <div class="card-body">
         <div class="form-group form-inline">
           <!--<input type="text" class="text form-control" placeholder="Your name">-->
-          <button class="get btn btn-success">Log In</button>
+          <button class="get btn btn-success">Sign Challenge</button>
         </div>
-        <p>A web server sends you a challenge message that you sign with metamask.  This signature proves to the server that you own the ethereum address.</p>
+        <p>The server generates a one-time challenge message that you sign with metamask.  Your signature proves to the server that you own the ethereum address.</p>
+        <h4>Challenge:</h4> <pre class="challenge"></pre>
+        <h4>Signature:</h4> <pre class="signature"></pre>
+
       </div>
     </div>
 
     <div class="card bg-light mb-3 mx-auto" id="blockchain" style="max-width:90%;">
       <div class="card-header">Authenticate</div>
       <div class="card-body">
-        <h1 class="success" style="display: none;">Authentication Success</h1>
-        <h1 class="fail" style="display: none;">Authentication Failed</h1>
+        <h1 class="success" style="display: none; color:green">Success</h1>
+        <h1 class="fail" style="display: none;  color:red">Failed</h1>
         <div class="form-group form-inline">
           <!--<input type="text" class="text form-control" placeholder="Your name">-->
-          <button class="verify btn btn-success">Authenticate</button>
+          <button class="verify btn btn-success">Log In</button>
         </div>
-        <p>The web server will check with the smart contract that you have at least one token, if you do then you are authenticated.</p>
+        <p>Server checks that your signature matches your address and checks with the smart contract that you have at least one token, if you do then you are authenticated.</p>
       </div>
     </div>
 
@@ -193,15 +196,6 @@
 
         </footer>
         <!--/Footer-->
-
-          <h1 class="success" style="display: none;">Authentication Success</h1>
-           <h1 class="fail" style="display: none;">Authentication Failed</h1>
-         <button class="get">Get Challenge</button>
-
-         <button class="verify">Verify Signature</button>
-
-         <pre class="challenge"></pre>
-         <pre class="signature"></pre>
 
   </body>
 
