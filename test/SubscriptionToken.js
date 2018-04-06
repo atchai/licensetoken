@@ -9,10 +9,4 @@ contract("Subscription token", accounts => {
     assert.equal(owner, accounts[0]);
   });
 
-  it("Must only allow owner to mint", async () => {
-    let instance = await SubscriptionToken.deployed();
-    let other = accounts[1];
-    await instance.transferOwnership(other);
-    await assertRevert(instance.mint());
-  });
 });
