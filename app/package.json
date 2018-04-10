@@ -5,7 +5,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack",
-    "start": "webpack && node server.js"
+    "start": "node server.js"
   },
   "author": "",
   "license": "ISC",
@@ -16,6 +16,7 @@
     "express": "^4.16.3",
     "jquery": "^3.3.1",
     "meta-auth": "^1.1.2",
+    "truffle-hdwallet-provider": "0.0.3",
     "web3": "^0.20.0"
   },
   "devDependencies": {
