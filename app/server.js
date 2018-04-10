@@ -10,6 +10,8 @@ if (process.env.NODE_ENV !== 'production') {
 const mnemonic = process.env.MNEMONIC
 const infura_api = process.env.INFURA_API
 const contract_address = process.env.CONTRACT_ADDRESS
+const port = process.env.PORT
+
 const contract_abi = require('./src/abi.js');
 
 var web3 = new Web3(
@@ -56,6 +58,6 @@ app.get('/auth/:MetaMessage/:MetaSignature', metaAuth, (req, res) => {
   };
 });
 
-app.listen(3001, () => {
+app.listen(port, () => {
   console.log('Listening on port 3001')
 })

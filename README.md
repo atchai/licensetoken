@@ -17,6 +17,7 @@ You buy a token, then authenticate with a server by cryptographically verifying 
   * INFURA_API (infura eth node api key)
   * NETWORK_ID (eth network id to use - e.g.  ropsten is 3)
   * CONTRACT_ADDRESS (address of the deployed contract, you'll get this after running truffle)
+  * PORT
 
 ### Installation
 
