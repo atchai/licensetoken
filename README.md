@@ -30,6 +30,7 @@ Deploy contract:
 `truffle migrate`
 
 Insert the contract address as an environemnt variable - see Prerequisites
+Manually update contract_address and server_address in app/src/index.js
 
 Run the server:
 ```

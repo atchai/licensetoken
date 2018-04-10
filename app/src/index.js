@@ -1,8 +1,11 @@
 import $ from 'jquery';
 var Web3 = require('web3')
 
-const address = '0x9a654669beb121f429941105ce868e81f7a282a0';  //ropsten
+const contract_address = '0x9a654669beb121f429941105ce868e81f7a282a0';  //ropsten
 //const address = '0x345ca3e014aaf5dca488057592ee47305d9b3e10';  //dev
+const server_address = 'https://licensetoken.herokuapp.com'
+//const server_address = 'http://localhost:3001'
+
 
 const abi = require('./abi.js');
 const price = web3.toWei(0.1, 'ether');
@@ -61,7 +64,7 @@ window.addEventListener('load', function() {
 
 function startApp(web3js) {
 
-  var contract = web3js.eth.contract(abi).at(address);
+  var contract = web3js.eth.contract(abi).at(contract_address);
 
   $('.buy').on('click', function () {
     contract.purchaseSubscription({
@@ -87,7 +90,7 @@ function startApp(web3js) {
 
   $('.get').on('click', function () {
     $('.challenge').empty();
-    $.get('http://localhost:3001/auth/' + web3js.eth.accounts[0], (res) => {
+    $.get(server_address + '/auth/' + web3js.eth.accounts[0], (res) => {
       challenge = res
 
       res.forEach(line => {
@@ -123,7 +126,7 @@ function startApp(web3js) {
   $('.verify').on('click', function() {
 
     if (challenge) {
-      $.get('http://localhost:3001/auth/' + challenge[1].value + '/' + signature, (res) => {
+      $.get(server_address + '/auth/' + challenge[1].value + '/' + signature, (res) => {
         if (res === web3js.eth.accounts[0]) {
           $('.success').show();
         } else {
