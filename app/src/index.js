@@ -6,7 +6,6 @@ const contract_address = '0x9a654669beb121f429941105ce868e81f7a282a0';  //ropste
 const server_address = 'https://licensetoken.herokuapp.com'
 //const server_address = 'http://localhost:3001'
 
-
 const abi = require('./abi.js');
 const price = web3.toWei(0.1, 'ether');
 const network_id = 3 // ropsten - ethereum network ID
