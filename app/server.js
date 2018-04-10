@@ -1,17 +1,25 @@
 const express = require('express');
 const MetaAuth = require('meta-auth');
 const Web3 = require('web3');
+const HDWalletProvider = require("truffle-hdwallet-provider");
+
+if (process.env.NODE_ENV !== 'production') {
+  require('dotenv').load();
+}
+
+const mnemonic = process.env.MNEMONIC
+const infura_api = process.env.INFURA_API
+const contract_address = process.env.CONTRACT_ADDRESS
+const contract_abi = require('./src/abi.js');
+
 var web3 = new Web3(
-    new Web3.providers.HttpProvider('http://127.0.0.1:7545')
+  new HDWalletProvider(mnemonic, "https://ropsten.infura.io/" + infura_api)
 );
 
 const app = express();
 const metaAuth = new MetaAuth({
   banner: 'Token License Login'
 });
-
-const contract_address = '0x345ca3e014aaf5dca488057592ee47305d9b3e10';
-const contract_abi = require('./src/abi.js');
 
 var token = web3.eth.contract(contract_abi).at(contract_address);
 

@@ -1,10 +1,12 @@
 import $ from 'jquery';
 var Web3 = require('web3')
 
-const address = '0x345ca3e014aaf5dca488057592ee47305d9b3e10';
+const address = '0x9a654669beb121f429941105ce868e81f7a282a0';  //ropsten
+//const address = '0x345ca3e014aaf5dca488057592ee47305d9b3e10';  //dev
+
 const abi = require('./abi.js');
 const price = web3.toWei(0.1, 'ether');
-const network_id = 5777 // ethereum network ID
+const network_id = 3 // ropsten - ethereum network ID
 
 let challenge = null;
 let signature = null;
@@ -14,7 +16,7 @@ window.addEventListener('load', function() {
   // Checking if Web3 has been injected by the browser (Mist/MetaMask)
   if ((typeof web3 !== 'undefined') && (web3.givenProvider !== null)) {
     var web3js = new Web3(web3.currentProvider);
-    
+
     // Checking if user is logged into an account
     web3js.eth.getAccounts(function(err, accounts){
         if (err != null) console.error("An error occurred: "+err);

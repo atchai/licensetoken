@@ -15,7 +15,7 @@ contract SubscriptionToken is ERC721Token, Ownable {
     _mint(msg.sender, totalSupply());
   }
 
-  function hasValidSubscription(address _owner) public returns (bool)  {
+  function hasValidSubscription(address _owner) public view returns (bool)  {
     if (balanceOf(_owner) > 1) return true;
     return false;
   }
