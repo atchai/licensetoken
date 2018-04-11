@@ -3,20 +3,29 @@ const MetaAuth = require('meta-auth');
 const Web3 = require('web3');
 const HDWalletProvider = require("truffle-hdwallet-provider");
 
+let contract_address = undefined
+
+// development
 if (process.env.NODE_ENV !== 'production') {
   require('dotenv').load();
+  contract_address = '0x8f0483125fcb9aaaefa9209d8e9d7b9c8b9fb90f'
+  var web3 = new Web3(
+    new Web3.providers.HttpProvider('http://127.0.0.1:7545')
+  );
 }
 
-const mnemonic = process.env.MNEMONIC
-const infura_api = process.env.INFURA_API
-const contract_address = process.env.CONTRACT_ADDRESS
-const port = process.env.PORT
+// production
+else {
+  contract_address = '0x9a654669beb121f429941105ce868e81f7a282a0'
+  const mnemonic = process.env.MNEMONIC
+  const infura_api = process.env.INFURA_API
+  var web3 = new Web3(
+    new HDWalletProvider(mnemonic, "https://ropsten.infura.io/" + infura_api)
+  );
+}
 
 const contract_abi = require('./src/abi.js');
-
-var web3 = new Web3(
-  new HDWalletProvider(mnemonic, "https://ropsten.infura.io/" + infura_api)
-);
+const port = process.env.PORT || '3001'
 
 const app = express();
 const metaAuth = new MetaAuth({
@@ -46,6 +55,7 @@ app.get('/auth/:MetaMessage/:MetaSignature', metaAuth, (req, res) => {
         }
         else {
           // Authentication is valid, assign JWT, etc.
+          console.log(result.c[0])
           if (result.c[0] > 0) res.send(req.metaAuth.recovered);
           // Authentication fail, no subscription token
           else res.status(400).send();

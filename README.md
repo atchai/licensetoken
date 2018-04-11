@@ -15,8 +15,6 @@ You buy a token, then authenticate with a server by cryptographically verifying 
 * The following environment variables set in a .env file in /app:
   * MNEMONIC  (seed mnemonic of an account where first derived address has positive balance)
   * INFURA_API (infura eth node api key)
-  * NETWORK_ID (eth network id to use - e.g.  ropsten is 3)
-  * CONTRACT_ADDRESS (address of the deployed contract, you'll get this after running truffle)
   * PORT
 
 ### Installation
@@ -29,8 +27,7 @@ Deploy contract:
 
 `truffle migrate`
 
-Insert the contract address as an environemnt variable - see Prerequisites
-Manually update contract_address and server_address in app/src/index.js
+Update contract_address and server_address in app/src/index.js and app/server.js
 
 Run the server:
 ```

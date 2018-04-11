@@ -1,14 +1,25 @@
 import $ from 'jquery';
 var Web3 = require('web3')
 
-const contract_address = '0x9a654669beb121f429941105ce868e81f7a282a0';  //ropsten
-//const address = '0x345ca3e014aaf5dca488057592ee47305d9b3e10';  //dev
-const server_address = 'https://licensetoken.herokuapp.com'
-//const server_address = 'http://localhost:3001'
+let contract_address = undefined
+let server_address = undefined
+let network_id = undefined
+
+// production
+if (window.location.hostname == 'licensetoken.atchai.com') {
+  contract_address = '0x9a654669beb121f429941105ce868e81f7a282a0';  //ropsten
+  server_address = 'http://licensetoken.atchai.com/'
+  network_id = 3 // ropsten - ethereum network ID
+}
+// dev
+else {
+  contract_address = '0x8f0483125fcb9aaaefa9209d8e9d7b9c8b9fb90f';  //dev
+  server_address = 'http://localhost:3001'
+  network_id = 5777 // ganache - ethereum network ID
+}
 
 const abi = require('./abi.js');
 const price = web3.toWei(0.1, 'ether');
-const network_id = 3 // ropsten - ethereum network ID
 
 let challenge = null;
 let signature = null;
