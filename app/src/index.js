@@ -8,7 +8,7 @@ let network_id = undefined
 // production
 if (window.location.hostname == 'licensetoken.atchai.com') {
   contract_address = '0x9a654669beb121f429941105ce868e81f7a282a0';  //ropsten
-  server_address = 'http://licensetoken.atchai.com/'
+  server_address = 'http://licensetoken.atchai.com'
   network_id = 3 // ropsten - ethereum network ID
 }
 // dev
